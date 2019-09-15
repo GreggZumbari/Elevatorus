@@ -16,7 +16,7 @@ public class PlayerMovingManager : MonoBehaviour
     public int multiJumpLimit; //Number of jumps in between rests
 	public bool midAir;
 
-    public GameObject head;
+    public GameObject feet;
 
     private float sprint;
     private int jumps;
@@ -51,19 +51,18 @@ public class PlayerMovingManager : MonoBehaviour
         //WASD controls
         if (Input.GetKey(KeyCode.W))
             transform.Translate(
-                new Vector3(head.GetComponent<Transform>().rotation.y,
+                new Vector3(feet.GetComponent<Transform>().forward.x,
                 0,
-                head.GetComponent<Transform>().forward.z)
-                * Time.deltaTime * speed * sprint);
+                feet.GetComponent<Transform>().forward.z) * Time.deltaTime * speed * sprint);
         if (Input.GetKey(KeyCode.S))
             transform.Translate(
-                new Vector3(-(head.GetComponent<Transform>().forward.x),
+                new Vector3(-feet.GetComponent<Transform>().forward.x,
                 0,
-                -(head.GetComponent<Transform>().forward.z)) * Time.deltaTime * speed);
+                -feet.GetComponent<Transform>().forward.z) * Time.deltaTime * speed);
         if (Input.GetKey(KeyCode.A))
-            transform.Translate(-head.GetComponent<Transform>().right * Time.deltaTime * speed);
+            transform.Translate(-feet.GetComponent<Transform>().right * Time.deltaTime * speed);
         if (Input.GetKey(KeyCode.D))
-            transform.Translate(head.GetComponent<Transform>().right * Time.deltaTime * speed);
+            transform.Translate(feet.GetComponent<Transform>().right * Time.deltaTime * speed);
 
         //Jumping
         if (Input.GetKeyDown(KeyCode.Space) && jumps < multiJumpLimit)

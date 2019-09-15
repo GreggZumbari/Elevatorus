@@ -12,7 +12,9 @@ public class PlayerLookingManager : MonoBehaviour
 {
     public float mouseSensitivity;
 
-    private float horiz, vert;
+    public float horiz, vert;
+
+    public GameObject feet;
 
 	// Start is called before the first frame update
 	void Start()
@@ -29,11 +31,12 @@ public class PlayerLookingManager : MonoBehaviour
 		vert -= mouseSensitivity * Input.GetAxis("Mouse Y");
 
 		//Prevent the in-game player from breaking their neck
-		if (vert >= 90)
-            vert = 90f;
-        if (vert <= -90)
-            vert = -90f;
+		if (vert >= 85)
+            vert = 85f;
+        if (vert <= -85)
+            vert = -85f;
 
 		transform.eulerAngles = new Vector3(vert, horiz, 0.0f);
-	}
+        feet.transform.eulerAngles = new Vector3(0, horiz, 0.0f);
+    }
 }

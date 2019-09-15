@@ -345,7 +345,7 @@ MonoBehaviour:
   sprintMultiplier: 2.5
   multiJumpLimit: 1
   midAir: 0
-  head: {fileID: 1640532329}
+  feet: {fileID: 1100491876}
 --- !u!1 &1100491876
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,6 +610,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 10
+  horiz: 0
+  vert: 0
+  feet: {fileID: 1100491876}
 --- !u!1 &1962656517
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,7 +651,7 @@ MonoBehaviour:
   sprintMultiplier: 2.5
   multiJumpLimit: 0
   midAir: 0
-  head: {fileID: 0}
+  feet: {fileID: 0}
 --- !u!54 &1962656519
 Rigidbody:
   m_ObjectHideFlags: 0
